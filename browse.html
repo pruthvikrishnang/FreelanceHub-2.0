@@ -1,0 +1,645 @@
+<!-- ========================= -->
+<!-- FILE NAME : browse.html -->
+<!-- ========================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Browse Freelancers</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+<div class="nav-container">
+
+<a href="index.html" class="logo">
+<i class="fa-solid fa-briefcase"></i>
+Freelance<span>Hub</span>
+</a>
+
+<nav class="nav-links">
+
+<a href="index.html">Home</a>
+
+<a href="browse.html" class="active-nav">
+Browse Freelancers
+</a>
+
+<a href="projects.html">
+Projects
+</a>
+
+<a href="how-it-works.html">
+How It Works
+</a>
+
+</nav>
+
+<div class="nav-right">
+
+<a href="login.html" class="signin-link">
+Sign In
+</a>
+
+<a href="#" class="post-btn">
+Post a Project
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="browse-hero">
+
+<div class="browse-container">
+
+<h1>Browse Freelancers</h1>
+
+<p>Discover skilled students and professionals</p>
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input type="text"
+placeholder="Search by name, skill, or technology...">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- MAIN CONTENT -->
+
+<section class="browse-main">
+
+<div class="browse-layout">
+
+<!-- FILTER SIDEBAR -->
+
+<div class="filter-sidebar">
+
+<div class="filter-top">
+
+<h2>Filters</h2>
+
+<a href="#">Reset all</a>
+
+</div>
+
+<div class="filter-group">
+
+<h4>CATEGORY</h4>
+
+<ul>
+
+<li class="active-filter">All</li>
+<li>Development</li>
+<li>Design</li>
+<li>Writing</li>
+<li>Marketing</li>
+<li>Media</li>
+<li>Data</li>
+
+</ul>
+
+</div>
+
+<div class="filter-group">
+
+<h4>LOCATION</h4>
+
+<select>
+
+<option>All</option>
+<option>Bengaluru</option>
+<option>Mangalore</option>
+<option>Hubli</option>
+<option>Hyderabad</option>
+
+</select>
+
+</div>
+
+<div class="filter-group">
+
+<h4>MAX RATE: ₹1000/HR</h4>
+
+<input type="range" min="400" max="1000">
+
+<div class="range-values">
+
+<span>₹400</span>
+<span>₹1000</span>
+
+</div>
+
+</div>
+
+<div class="toggle-box">
+
+<span>Available now</span>
+
+<label class="switch">
+
+<input type="checkbox">
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+</div>
+
+<!-- FREELANCERS -->
+
+<div class="freelancer-content">
+
+<div class="freelancer-top">
+
+<h3>8 freelancers found</h3>
+
+<select class="sort-box">
+
+<option>Top Rated (ORDER BY rating DESC)</option>
+<option>Lowest Price</option>
+<option>Highest Price</option>
+
+</select>
+
+</div>
+
+<div class="browse-grid">
+
+<!-- CARD -->
+
+<div class="browse-card">
+
+<div class="browse-card-top">
+
+<div class="profile-circle">SK</div>
+
+<div class="available-tag">● Available</div>
+
+</div>
+
+<h2>Sneha Kulkarni</h2>
+
+<h4>Data Analysis</h4>
+
+<p class="location">
+
+<i class="fa-solid fa-location-dot"></i>
+
+Bengaluru
+
+</p>
+
+<p class="desc">
+
+Data analyst and ML engineer with strong background in Python,
+R, and Tableau....
+
+</p>
+
+<div class="skills">
+
+<span>Python</span>
+<span>R</span>
+<span>SQL</span>
+<span>+2</span>
+
+</div>
+
+<div class="browse-bottom">
+
+<div class="rating">
+
+⭐ 5 <span>(12)</span>
+
+</div>
+
+<div class="jobs">
+
+✔ 15 jobs
+
+</div>
+
+<div class="price">
+
+₹950/hr
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="browse-card">
+
+<div class="browse-card-top">
+
+<div class="profile-circle">PK</div>
+
+<div class="available-tag">● Available</div>
+
+</div>
+
+<h2>Pruthvi Krishna</h2>
+
+<h4>Graphic Design</h4>
+
+<p class="location">
+
+<i class="fa-solid fa-location-dot"></i>
+
+Bengaluru
+
+</p>
+
+<p class="desc">
+
+Creative graphic designer with passion for branding,
+UI/UX and visual storytelling.
+
+</p>
+
+<div class="skills">
+
+<span>Adobe Illustrator</span>
+<span>Figma</span>
+<span>Photoshop</span>
+
+</div>
+
+<div class="browse-bottom">
+
+<div class="rating">
+
+⭐ 4.9 <span>(34)</span>
+
+</div>
+
+<div class="jobs">
+
+✔ 42 jobs
+
+</div>
+
+<div class="price">
+
+₹800/hr
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="browse-card">
+
+<div class="browse-card-top">
+
+<div class="profile-circle">KS</div>
+
+<div class="available-tag">● Available</div>
+
+</div>
+
+<h2>Kiran Shankar</h2>
+
+<h4>Full Stack Development</h4>
+
+<p class="location">
+
+<i class="fa-solid fa-location-dot"></i>
+
+Hyderabad
+
+</p>
+
+<p class="desc">
+
+MERN stack developer and Python enthusiast.
+Builds scalable web apps.
+
+</p>
+
+<div class="skills">
+
+<span>MongoDB</span>
+<span>Express</span>
+<span>React</span>
+
+</div>
+
+<div class="browse-bottom">
+
+<div class="rating">
+
+⭐ 4.9 <span>(52)</span>
+
+</div>
+
+<div class="jobs">
+
+✔ 63 jobs
+
+</div>
+
+<div class="price">
+
+₹750/hr
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="browse-card">
+
+<div class="browse-card-top">
+
+<div class="profile-circle">RG</div>
+
+<div class="available-tag">● Available</div>
+
+</div>
+
+<h2>R G Ravitej</h2>
+
+<h4>Web Development</h4>
+
+<p class="location">
+
+<i class="fa-solid fa-location-dot"></i>
+
+Mangalore
+
+</p>
+
+<p class="desc">
+
+Front-end and backend developer specializing
+in HTML, CSS and JavaScript.
+
+</p>
+
+<div class="skills">
+
+<span>HTML/CSS</span>
+<span>JavaScript</span>
+<span>Node.js</span>
+
+</div>
+
+<div class="browse-bottom">
+
+<div class="rating">
+
+⭐ 4.8 <span>(27)</span>
+
+</div>
+
+<div class="jobs">
+
+✔ 31 jobs
+
+</div>
+
+<div class="price">
+
+₹900/hr
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="browse-card">
+
+<div class="browse-card-top">
+
+<div class="profile-circle">JS</div>
+
+<div class="busy-tag">● Busy</div>
+
+</div>
+
+<h2>John Sokpo</h2>
+
+<h4>Software Engineering</h4>
+
+<p class="location">
+
+<i class="fa-solid fa-location-dot"></i>
+
+Remote
+
+</p>
+
+<p class="desc">
+
+Backend-focused software engineer with expertise
+in Python and Java.
+
+</p>
+
+<div class="skills">
+
+<span>Python</span>
+<span>Java</span>
+<span>Spring Boot</span>
+
+</div>
+
+<div class="browse-bottom">
+
+<div class="rating">
+
+⭐ 4.8 <span>(41)</span>
+
+</div>
+
+<div class="jobs">
+
+✔ 55 jobs
+
+</div>
+
+<div class="price">
+
+₹700/hr
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="browse-card">
+
+<div class="browse-card-top">
+
+<div class="profile-circle">PM</div>
+
+<div class="available-tag">● Available</div>
+
+</div>
+
+<h2>Praful Maganurmath</h2>
+
+<h4>Content Writing</h4>
+
+<p class="location">
+
+<i class="fa-solid fa-location-dot"></i>
+
+Hubli
+
+</p>
+
+<p class="desc">
+
+Full-stack developer and content writer.
+Creates technical blogs and web content.
+
+</p>
+
+<div class="skills">
+
+<span>Content Writing</span>
+<span>SEO</span>
+<span>Technical Writing</span>
+
+</div>
+
+<div class="browse-bottom">
+
+<div class="rating">
+
+⭐ 4.7 <span>(19)</span>
+
+</div>
+
+<div class="jobs">
+
+✔ 24 jobs
+
+</div>
+
+<div class="price">
+
+₹600/hr
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+</body>
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<div class="footer-logo">
+<i class="fa-solid fa-briefcase"></i>
+<h2>Freelance<span>Hub</span></h2>
+</div>
+
+<p>
+Connecting talented students and professionals with local businesses
+for impactful freelance work.
+</p>
+
+</div>
+
+<div class="footer-links">
+
+<h3>PLATFORM</h3>
+
+<a href="browse.html">Browse Freelancers</a>
+<a href="projects.html">Browse Projects</a>
+<a href="projects.html">Post a Project</a>
+<a href="how-it-works.html">How It Works</a>
+
+</div>
+
+<div class="footer-links">
+
+<h3>ACCOUNT</h3>
+
+<a href="login.html">Student Sign In</a>
+<a href="login.html">Recruiter Sign In</a>
+<a href="login.html">Join as Student</a>
+<a href="login.html">Join as Business</a>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+© 2026 FreelanceHub — Student & Professional Matchmaking Platform
+</p>
+
+
+</div>
+
+</div>
+
+</footer>
+</html>
