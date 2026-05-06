@@ -44,7 +44,7 @@ Freelancer - Client <span>Matchmaking</span>
 
 <div class="nav-right">
 <a href="login.html" class="signin-btn">Sign In</a>
-<a href="#" class="post-btn">
+<a href="projects.html#openForm" class="post-btn">
 Post a Project
 </a>
 
@@ -139,8 +139,7 @@ emailError.innerText = "";
 passwordError.innerText = "";
 roleError.innerText = "";
 
-const emailPattern =
-/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+const emailPattern =/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 if(email.value.trim() === ""){
 
@@ -188,6 +187,6 @@ window.location.href = "index.html";
 });
 
 </script>
-
+<script src="app.js"></script>
 </body>
 </html>
