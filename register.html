@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Register - FreelanceHub</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+</head>
+
+<body>
+
+<section class="login-page">
+
+<form class="login-container" id="registerForm">
+
+<h1>Create Account</h1>
+
+<p>Join FreelanceHub today</p>
+
+<div class="input-group">
+<input type="text" id="name" placeholder="Full Name" required>
+</div>
+
+<div class="input-group">
+<input type="email" id="email" placeholder="Email" required>
+</div>
+
+<div class="input-group">
+<input type="password" id="password" placeholder="Password" required>
+</div>
+
+<div class="input-group">
+
+<select id="role" required>
+
+<option value="">Select Role</option>
+
+<option value="Student">
+Student
+</option>
+
+<option value="Business">
+Business
+</option>
+
+</select>
+
+</div>
+
+<button type="submit">
+Register
+</button>
+
+</form>
+
+</section>
+
+<script>
+
+document.getElementById("registerForm")
+.addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const userData = {
+
+full_name:
+document.getElementById("name").value,
+
+email:
+document.getElementById("email").value,
+
+password:
+document.getElementById("password").value,
+
+role:
+document.getElementById("role").value
+
+};
+
+const response = await fetch(
+"http://localhost:5000/register",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(userData)
+});
+
+const data = await response.json();
+
+if(data.success){
+
+alert("Registration Successful");
+
+window.location.href = "login.html";
+
+}
+else{
+
+alert(data.message);
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
