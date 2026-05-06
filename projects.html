@@ -414,9 +414,19 @@ Applications Open
 
 <span>${project.status}</span>
 
-<a href="#" class="apply-btn">
+<button
+class="apply-btn"
+
+onclick="applyProject(
+'${project.title}',
+'${project.description}',
+'${project.budget}'
+)"
+>
+
 Apply Now
-</a>
+
+</button>
 
 </div>
 
@@ -510,6 +520,103 @@ button.classList.add(
 loadProjects();
 
 }
+
+function setFilter(button){
+
+document
+.querySelectorAll(".project-filter-btn")
+.forEach(btn => {
+
+btn.classList.remove(
+"active-project-filter"
+);
+
+});
+
+button.classList.add(
+"active-project-filter"
+);
+
+loadProjects();
+
+}
+
+
+// ADD THIS WHOLE FUNCTION HERE
+
+function applyProject(title,description,budget){
+
+const applicantName =
+prompt("Enter Your Name");
+
+if(!applicantName) return;
+
+const applicantEmail =
+prompt("Enter Your Email");
+
+if(!applicantEmail) return;
+
+fetch("https://api.web3forms.com/submit",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+access_key:"0a1e427e-477d-4939-9d39-2445240385c9",
+
+subject:"New Freelancer Application",
+
+from_name: applicantName,
+
+email: applicantEmail,
+
+message: `
+
+Project Applied:
+
+Title: ${title}
+
+Description:
+${description}
+
+Budget:
+₹${budget}
+
+Applicant Name:
+${applicantName}
+
+Applicant Email:
+${applicantEmail}
+
+`
+
+})
+
+})
+
+.then(response => response.json())
+
+.then(data => {
+
+if(data.success){
+
+alert("Application Sent Successfully");
+
+}
+else{
+
+alert("Failed To Send");
+
+}
+
+});
+
+}
+
 window.onload = function(){
 
 loadProjects();
