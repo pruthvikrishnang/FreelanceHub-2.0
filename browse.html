@@ -83,9 +83,12 @@ Post a Project
 <div class="search-box">
 
 <i class="fa-solid fa-magnifying-glass"></i>
-
-<input type="text"
-placeholder="Search by name, skill, or technology...">
+<input
+type="text"
+id="freelancerSearch"
+placeholder="Search by name, skill, or technology..."
+onkeyup="loadFreelancers()"
+>
 
 </div>
 
@@ -117,13 +120,34 @@ placeholder="Search by name, skill, or technology...">
 
 <ul>
 
-<li class="active-filter">All</li>
-<li>Development</li>
-<li>Design</li>
-<li>Writing</li>
-<li>Marketing</li>
-<li>Media</li>
-<li>Data</li>
+<li class="active-filter"
+onclick="setCategory('All',this)">
+All
+</li>
+
+<li onclick="setCategory('Development',this)">
+Development
+</li>
+
+<li onclick="setCategory('Design',this)">
+Design
+</li>
+
+<li onclick="setCategory('Writing',this)">
+Writing
+</li>
+
+<li onclick="setCategory('Marketing',this)">
+Marketing
+</li>
+
+<li onclick="setCategory('Media',this)">
+Media
+</li>
+
+<li onclick="setCategory('Data',this)">
+Data
+</li>
 
 </ul>
 
@@ -133,7 +157,10 @@ placeholder="Search by name, skill, or technology...">
 
 <h4>LOCATION</h4>
 
-<select>
+<select
+id="locationFilter"
+onchange="loadFreelancers()"
+>
 
 <option>All</option>
 <option>Bengaluru</option>
@@ -149,7 +176,14 @@ placeholder="Search by name, skill, or technology...">
 
 <h4>MAX RATE: ₹1000/HR</h4>
 
-<input type="range" min="400" max="1000">
+<input
+type="range"
+min="400"
+max="1000"
+value="1000"
+id="rateFilter"
+oninput="loadFreelancers()"
+>
 
 <div class="range-values">
 
@@ -166,7 +200,11 @@ placeholder="Search by name, skill, or technology...">
 
 <label class="switch">
 
-<input type="checkbox">
+<input
+type="checkbox"
+id="availableFilter"
+onchange="loadFreelancers()"
+>
 
 <span class="slider"></span>
 
@@ -184,9 +222,13 @@ placeholder="Search by name, skill, or technology...">
 
 <h3>8 freelancers found</h3>
 
-<select class="sort-box">
+<select
+class="sort-box"
+id="sortFilter"
+onchange="loadFreelancers()"
+>
 
-<option>Top Rated (ORDER BY rating DESC)</option>
+<option>Top Rated</option>
 <option>Lowest Price</option>
 <option>Highest Price</option>
 
@@ -194,393 +236,8 @@ placeholder="Search by name, skill, or technology...">
 
 </div>
 
-<div class="browse-grid">
-
-<!-- CARD -->
-
-<div class="browse-card">
-
-<div class="browse-card-top">
-
-<div class="profile-circle">SK</div>
-
-<div class="available-tag">● Available</div>
-
+<div class="browse-grid" id="browseGrid">
 </div>
-
-<h2>Sneha Kulkarni</h2>
-
-<h4>Data Analysis</h4>
-
-<p class="location">
-
-<i class="fa-solid fa-location-dot"></i>
-
-Bengaluru
-
-</p>
-
-<p class="desc">
-
-Data analyst and ML engineer with strong background in Python,
-R, and Tableau....
-
-</p>
-
-<div class="skills">
-
-<span>Python</span>
-<span>R</span>
-<span>SQL</span>
-<span>+2</span>
-
-</div>
-
-<div class="browse-bottom">
-
-<div class="rating">
-
-⭐ 5 <span>(12)</span>
-
-</div>
-
-<div class="jobs">
-
-✔ 15 jobs
-
-</div>
-
-<div class="price">
-
-₹950/hr
-
-</div>
-
-</div>
-
-</div>
-
-<!-- CARD -->
-
-<div class="browse-card">
-
-<div class="browse-card-top">
-
-<div class="profile-circle">PK</div>
-
-<div class="available-tag">● Available</div>
-
-</div>
-
-<h2>Pruthvi Krishna</h2>
-
-<h4>Graphic Design</h4>
-
-<p class="location">
-
-<i class="fa-solid fa-location-dot"></i>
-
-Bengaluru
-
-</p>
-
-<p class="desc">
-
-Creative graphic designer with passion for branding,
-UI/UX and visual storytelling.
-
-</p>
-
-<div class="skills">
-
-<span>Adobe Illustrator</span>
-<span>Figma</span>
-<span>Photoshop</span>
-
-</div>
-
-<div class="browse-bottom">
-
-<div class="rating">
-
-⭐ 4.9 <span>(34)</span>
-
-</div>
-
-<div class="jobs">
-
-✔ 42 jobs
-
-</div>
-
-<div class="price">
-
-₹800/hr
-
-</div>
-
-</div>
-
-</div>
-
-<!-- CARD -->
-
-<div class="browse-card">
-
-<div class="browse-card-top">
-
-<div class="profile-circle">KS</div>
-
-<div class="available-tag">● Available</div>
-
-</div>
-
-<h2>Kiran Shankar</h2>
-
-<h4>Full Stack Development</h4>
-
-<p class="location">
-
-<i class="fa-solid fa-location-dot"></i>
-
-Hyderabad
-
-</p>
-
-<p class="desc">
-
-MERN stack developer and Python enthusiast.
-Builds scalable web apps.
-
-</p>
-
-<div class="skills">
-
-<span>MongoDB</span>
-<span>Express</span>
-<span>React</span>
-
-</div>
-
-<div class="browse-bottom">
-
-<div class="rating">
-
-⭐ 4.9 <span>(52)</span>
-
-</div>
-
-<div class="jobs">
-
-✔ 63 jobs
-
-</div>
-
-<div class="price">
-
-₹750/hr
-
-</div>
-
-</div>
-
-</div>
-
-<!-- CARD -->
-
-<div class="browse-card">
-
-<div class="browse-card-top">
-
-<div class="profile-circle">RG</div>
-
-<div class="available-tag">● Available</div>
-
-</div>
-
-<h2>R G Ravitej</h2>
-
-<h4>Web Development</h4>
-
-<p class="location">
-
-<i class="fa-solid fa-location-dot"></i>
-
-Mangalore
-
-</p>
-
-<p class="desc">
-
-Front-end and backend developer specializing
-in HTML, CSS and JavaScript.
-
-</p>
-
-<div class="skills">
-
-<span>HTML/CSS</span>
-<span>JavaScript</span>
-<span>Node.js</span>
-
-</div>
-
-<div class="browse-bottom">
-
-<div class="rating">
-
-⭐ 4.8 <span>(27)</span>
-
-</div>
-
-<div class="jobs">
-
-✔ 31 jobs
-
-</div>
-
-<div class="price">
-
-₹900/hr
-
-</div>
-
-</div>
-
-</div>
-
-<!-- CARD -->
-
-<div class="browse-card">
-
-<div class="browse-card-top">
-
-<div class="profile-circle">JS</div>
-
-<div class="busy-tag">● Busy</div>
-
-</div>
-
-<h2>John Sokpo</h2>
-
-<h4>Software Engineering</h4>
-
-<p class="location">
-
-<i class="fa-solid fa-location-dot"></i>
-
-Remote
-
-</p>
-
-<p class="desc">
-
-Backend-focused software engineer with expertise
-in Python and Java.
-
-</p>
-
-<div class="skills">
-
-<span>Python</span>
-<span>Java</span>
-<span>Spring Boot</span>
-
-</div>
-
-<div class="browse-bottom">
-
-<div class="rating">
-
-⭐ 4.8 <span>(41)</span>
-
-</div>
-
-<div class="jobs">
-
-✔ 55 jobs
-
-</div>
-
-<div class="price">
-
-₹700/hr
-
-</div>
-
-</div>
-
-</div>
-
-<!-- CARD -->
-
-<div class="browse-card">
-
-<div class="browse-card-top">
-
-<div class="profile-circle">PM</div>
-
-<div class="available-tag">● Available</div>
-
-</div>
-
-<h2>Praful Maganurmath</h2>
-
-<h4>Content Writing</h4>
-
-<p class="location">
-
-<i class="fa-solid fa-location-dot"></i>
-
-Hubli
-
-</p>
-
-<p class="desc">
-
-Full-stack developer and content writer.
-Creates technical blogs and web content.
-
-</p>
-
-<div class="skills">
-
-<span>Content Writing</span>
-<span>SEO</span>
-<span>Technical Writing</span>
-
-</div>
-
-<div class="browse-bottom">
-
-<div class="rating">
-
-⭐ 4.7 <span>(19)</span>
-
-</div>
-
-<div class="jobs">
-
-✔ 24 jobs
-
-</div>
-
-<div class="price">
-
-₹600/hr
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
 
@@ -640,6 +297,252 @@ for impactful freelance work.
 </div>
 
 </footer>
+<script>
+
+let allFreelancers = [];
+
+let selectedCategory = "All";
+
+function setCategory(category,element){
+
+selectedCategory = category;
+
+document
+.querySelectorAll(".filter-group ul li")
+.forEach(item => {
+
+item.classList.remove("active-filter");
+
+});
+
+element.classList.add("active-filter");
+
+displayFreelancers();
+
+}
+
+async function loadFreelancers(){
+
+const response =
+await fetch("http://localhost:5000/freelancers");
+
+allFreelancers =
+await response.json();
+
+displayFreelancers();
+
+}
+
+function displayFreelancers(){
+
+const search =
+document
+.getElementById("freelancerSearch")
+.value.toLowerCase();
+
+const location =
+document
+.getElementById("locationFilter")
+.value;
+
+const maxRate =
+parseInt(
+document
+.getElementById("rateFilter")
+.value
+);
+
+const available =
+document
+.getElementById("availableFilter")
+.checked;
+
+const sort =
+document
+.getElementById("sortFilter")
+.value;
+
+let filtered =
+allFreelancers.filter(f => {
+
+const matchesSearch =
+
+f.full_name.toLowerCase().includes(search)
+
+||
+
+f.skills.toLowerCase().includes(search);
+
+const matchesCategory =
+
+selectedCategory === "All"
+
+||
+
+f.category === selectedCategory;
+
+const matchesLocation =
+
+location === "All"
+
+||
+
+f.location === location;
+
+const matchesRate =
+
+f.hourly_rate <= maxRate;
+
+const matchesAvailability =
+
+!available
+
+||
+
+f.availability === "yes";
+
+return (
+matchesSearch &&
+matchesCategory &&
+matchesLocation &&
+matchesRate &&
+matchesAvailability
+);
+
+});
+
+
+// SORTING
+
+if(sort === "Top Rated"){
+
+filtered.sort((a,b)=>
+b.rating - a.rating
+);
+
+}
+
+if(sort === "Lowest Price"){
+
+filtered.sort((a,b)=>
+a.hourly_rate - b.hourly_rate
+);
+
+}
+
+if(sort === "Highest Price"){
+
+filtered.sort((a,b)=>
+b.hourly_rate - a.hourly_rate
+);
+
+}
+
+
+// UPDATE COUNT
+
+document.querySelector(
+".freelancer-top h3"
+).innerText =
+filtered.length + " freelancers found";
+
+
+// DISPLAY
+
+const grid =
+document.getElementById("browseGrid");
+
+grid.innerHTML = "";
+
+filtered.forEach(f => {
+
+const initials =
+f.full_name
+.split(" ")
+.map(word => word[0])
+.join("");
+
+const card = `
+
+<div class="browse-card">
+
+<div class="browse-card-top">
+
+<div class="profile-circle">
+${initials}
+</div>
+
+<div class="${
+f.availability === "yes"
+? "available-tag"
+: "busy-tag"
+}">
+● ${
+f.availability === "yes"
+? "Available"
+: "Busy"
+}
+</div>
+
+</div>
+
+<h2>${f.full_name}</h2>
+
+<h4>${f.category}</h4>
+
+<p class="location">
+
+<i class="fa-solid fa-location-dot"></i>
+
+${f.location}
+
+</p>
+
+<p class="desc">
+
+${f.description}
+
+</p>
+
+<div class="skills">
+
+${f.skills
+.split(",")
+.map(skill =>
+`<span>${skill}</span>`
+)
+.join("")}
+
+</div>
+
+<div class="browse-bottom">
+
+<div class="rating">
+
+⭐ ${f.rating}
+
+</div>
+
+<div class="price">
+
+₹${f.hourly_rate}/hr
+
+</div>
+
+</div>
+
+</div>
+`;
+
+grid.innerHTML += card;
+
+});
+
+}
+
+window.onload = loadFreelancers;
+
+</script>
 <script src="app.js"></script>
 
 </body>

@@ -33,13 +33,26 @@ console.log("MySQL Connected");
 
 // ================= REGISTER =================
 
+// ================= REGISTER =================
+
 app.post("/register",(req,res)=>{
 
 const {
+
 full_name,
 email,
 password,
-role
+role,
+
+title,
+city,
+bio,
+hourly_rate,
+experience_years,
+category,
+skills,
+location
+
 } = req.body;
 
 const checkSql =
@@ -86,9 +99,79 @@ message:err.message
 
 }
 
+const userId = result.insertId;
+
+
+// AUTO CREATE FREELANCER PROFILE
+
+if(role === "Freelancer"){
+
+const freelancerSql = `
+INSERT INTO freelancers
+(
+user_id,
+city_id,
+title,
+bio,
+hourly_rate,
+experience_years,
+rating,
+linkedin_url,
+category,
+location,
+skills,
+availability,
+description
+)
+
+VALUES
+(?,?,?,?,?,?,?,?,?,?,?,?,?)
+`;
+
+db.query(
+freelancerSql,
+[
+userId,
+1,
+title,
+bio,
+hourly_rate,
+experience_years,
+4.5,
+"https://linkedin.com",
+category,
+location,
+skills,
+"yes",
+bio
+],
+(err2,result2)=>{
+
+if(err2){
+
+console.log(err2);
+
+return res.json({
+success:false,
+message:"Freelancer profile creation failed"
+});
+
+}
+
 return res.json({
 success:true
 });
+
+});
+
+}
+else{
+
+return res.json({
+success:true
+});
+
+}
 
 });
 
@@ -148,13 +231,13 @@ recruiter_id,
 title,
 description,
 budget,
-status
+status,
+category
 } = req.body;
-
 const sql = `
 INSERT INTO projects
-(recruiter_id,title,description,budget,status)
-VALUES(?,?,?,?,?)
+(recruiter_id,title,description,budget,status,category)
+VALUES(?,?,?,?,?,?)
 `;
 
 db.query(
@@ -164,7 +247,8 @@ recruiter_id,
 title,
 description,
 budget,
-status
+status,
+category
 ],
 (err,result)=>{
 
@@ -198,7 +282,8 @@ project_id,
 title,
 description,
 budget,
-status
+status,
+category
 FROM projects
 ORDER BY project_id DESC
 `;
@@ -222,7 +307,8 @@ project_id: project.project_id,
 title: project.title,
 description: project.description,
 budget: project.budget,
-status: project.status
+status: project.status,
+category: project.category
 
 }));
 
@@ -231,7 +317,48 @@ res.json(projects);
 });
 
 });
+// ================= GET FREELANCERS =================
 
+app.get("/freelancers",(req,res)=>{
+
+const sql = `
+SELECT
+f.freelancer_id,
+u.full_name,
+f.title,
+f.category,
+f.location,
+f.skills,
+f.hourly_rate,
+f.rating,
+f.availability,
+f.description
+
+FROM freelancers f
+
+JOIN users u
+ON f.user_id = u.user_id
+
+ORDER BY f.rating DESC
+`;
+
+db.query(sql,(err,result)=>{
+
+if(err){
+
+console.log(err);
+
+return res.status(500).json({
+success:false
+});
+
+}
+
+res.json(result);
+
+});
+
+});
 
 // ================= SERVER =================
 

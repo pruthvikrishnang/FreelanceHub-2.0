@@ -14,9 +14,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
 </head>
 
 <body>
@@ -59,6 +56,55 @@ Recruiter
 
 </div>
 
+<!-- FREELANCER FIELDS -->
+
+<div class="input-group">
+<input type="text" id="title" placeholder="Professional Title">
+</div>
+
+<div class="input-group">
+<input type="text" id="city" placeholder="City">
+</div>
+
+<div class="input-group">
+<textarea id="bio" placeholder="Bio"></textarea>
+</div>
+
+<div class="input-group">
+<input type="number" id="hourly_rate" placeholder="Hourly Rate">
+</div>
+
+<div class="input-group">
+<input type="number" id="experience_years" placeholder="Experience Years">
+</div>
+
+<div class="input-group">
+
+<select id="category">
+
+<option value="">Select Category</option>
+
+<option>Development</option>
+<option>Design</option>
+<option>Writing</option>
+<option>Marketing</option>
+<option>Media</option>
+<option>Data</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+<input type="text" id="skills"
+placeholder="Skills (comma separated)">
+</div>
+
+<div class="input-group">
+<input type="text" id="location"
+placeholder="Location">
+</div>
+
 <button type="submit">
 Register
 </button>
@@ -86,7 +132,31 @@ password:
 document.getElementById("password").value,
 
 role:
-document.getElementById("role").value
+document.getElementById("role").value,
+
+title:
+document.getElementById("title").value,
+
+city:
+document.getElementById("city").value,
+
+bio:
+document.getElementById("bio").value,
+
+hourly_rate:
+document.getElementById("hourly_rate").value,
+
+experience_years:
+document.getElementById("experience_years").value,
+
+category:
+document.getElementById("category").value,
+
+skills:
+document.getElementById("skills").value,
+
+location:
+document.getElementById("location").value
 
 };
 
@@ -94,10 +164,13 @@ const response = await fetch(
 "http://localhost:5000/register",
 {
 method:"POST",
+
 headers:{
 "Content-Type":"application/json"
 },
+
 body:JSON.stringify(userData)
+
 });
 
 const data = await response.json();

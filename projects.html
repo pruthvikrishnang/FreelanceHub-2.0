@@ -75,6 +75,7 @@ Find freelance opportunities posted by local businesses
 <i class="fa-solid fa-magnifying-glass"></i>
 
 <input type="text"
+onkeyup="loadProjects()"
 placeholder="Search projects by title, skills, or keywords...">
 
 </div>
@@ -91,39 +92,19 @@ placeholder="Search projects by title, skills, or keywords...">
 
 <div class="project-filters">
 
-<button class="project-filter active-project-filter">
+<button
+class="project-filter-btn active-project-filter"
+onclick="setFilter(this)"
+>
 All
 </button>
 
-<button class="project-filter">
-Development
-</button>
-
-<button class="project-filter">
-Design
-</button>
-
-<button class="project-filter">
-Writing
-</button>
-
-<button class="project-filter">
-Marketing
-</button>
-
-<button class="project-filter">
-Media
-</button>
-
-<button class="project-filter">
-Data
-</button>
 
 </div>
 
 <div class="projects-sort">
 
-<select>
+<select onchange="loadProjects()">
 
 <option>Newest First</option>
 <option>Highest Budget</option>
@@ -196,7 +177,24 @@ Post a Project
 </div>
 
 <div class="form-group">
+<div class="form-group">
 
+<label>Category</label>
+
+<select id="projectCategory" required>
+
+<option value="">Select Category</option>
+
+<option value="Development">Development</option>
+<option value="Design">Design</option>
+<option value="Writing">Writing</option>
+<option value="Marketing">Marketing</option>
+<option value="Media">Media</option>
+<option value="Data">Data</option>
+
+</select>
+
+</div>
 <label>Budget</label>
 
 <input type="number"
@@ -286,9 +284,65 @@ const response = await fetch(
 "http://localhost:5000/projects"
 );
 
-const projects = await response.json();
+let projects = await response.json();
 
-console.log(projects);
+const searchValue =
+document.querySelector(".project-search input")
+.value.toLowerCase();
+
+const activeFilter =
+document.querySelector(".active-project-filter")
+.innerText;
+
+const sortValue =
+document.querySelector(".projects-sort select")
+.value;
+
+
+// SEARCH
+
+projects = projects.filter(project =>
+
+project.title.toLowerCase().includes(searchValue) ||
+
+project.description.toLowerCase().includes(searchValue)
+
+);
+
+
+// CATEGORY FILTER
+
+if(activeFilter !== "All"){
+
+projects = projects.filter(project =>
+
+project.category &&
+project.category.toLowerCase().trim() ===
+activeFilter.toLowerCase().trim()
+
+);
+
+}
+
+
+// SORTING
+
+if(sortValue === "Highest Budget"){
+
+projects.sort((a,b)=>
+parseFloat(b.budget) - parseFloat(a.budget)
+);
+
+}
+
+if(sortValue === "Lowest Budget"){
+
+projects.sort((a,b)=>
+parseFloat(a.budget) - parseFloat(b.budget)
+);
+
+}
+
 
 const container =
 document.getElementById("projectsContainer");
@@ -298,6 +352,7 @@ container.innerHTML = "";
 document.querySelector(".open-projects-text")
 .innerText =
 projects.length + " open projects";
+
 
 projects.forEach(project => {
 
@@ -310,7 +365,7 @@ container.innerHTML += `
 <div class="project-meta">
 
 <span class="project-category">
-Open
+${project.category}
 </span>
 
 <span class="posted-time">
@@ -327,7 +382,7 @@ Recently Posted
 
 <div class="project-skills">
 
-<span>Freelance</span>
+<span>${project.category}</span>
 <span>Project</span>
 
 </div>
@@ -397,8 +452,10 @@ document.getElementById("projectDescription").value,
 
 budget:
 document.getElementById("projectBudget").value,
+status:"Open",
 
-status:"Open"
+category:
+document.getElementById("projectCategory").value
 
 };
 
@@ -434,7 +491,25 @@ alert(data.message);
 }
 
 });
+function setFilter(button){
 
+document
+.querySelectorAll(".project-filter-btn")
+.forEach(btn => {
+
+btn.classList.remove(
+"active-project-filter"
+);
+
+});
+
+button.classList.add(
+"active-project-filter"
+);
+
+loadProjects();
+
+}
 window.onload = function(){
 
 loadProjects();
