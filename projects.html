@@ -38,7 +38,9 @@ Freelance<span>Hub</span>
 
 <div class="nav-right">
 <a href="login.html" class="signin-link">Sign In</a>
-<a href="#" class="post-btn">Post a Project</a>
+<button class="post-btn" onclick="openProjectForm()">
+Post a Project
+</button>
 </div>
 
 </div>
@@ -1120,7 +1122,19 @@ document.getElementById("projectPopup").classList.add("show-popup");
 }
 
 </script>
+<script>
 
+window.onload = function(){
+
+if(window.location.hash === "#openForm"){
+
+openProjectForm();
+
+}
+
+};
+
+</script>
 
 </body>
 
@@ -1150,7 +1164,9 @@ for impactful freelance work.
 
 <a href="browse.html">Browse Freelancers</a>
 <a href="projects.html">Browse Projects</a>
-<a href="projects.html">Post a Project</a>
+<a href="javascript:void(0)" onclick="openProjectForm()">
+Post a Project
+</a>
 <a href="how-it-works.html">How It Works</a>
 
 </div>

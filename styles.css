@@ -2247,3 +2247,21 @@ font-size:38px;
 }
 
 }
+
+.signin-btn{
+background:white;
+color:#07142e;
+padding:16px 34px;
+border-radius:18px;
+font-weight:700;
+text-decoration:none;
+transition:0.3s;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+}
+
+.signin-btn:hover{
+transform:translateY(-2px);
+background:#f3f3f3;
+}
