@@ -203,6 +203,18 @@ alert(data.message);
 
 });
 
+const bio =
+document.getElementById("bio");
+
+const bioCount =
+document.getElementById("bioCount");
+
+bio.addEventListener("input", function(){
+
+bioCount.innerText =
+bio.value.length + "/50";
+
+});
 </script>
 
 </body>
