@@ -110,7 +110,9 @@ onkeyup="loadFreelancers()"
 
 <h2>Filters</h2>
 
-<a href="#">Reset all</a>
+<a href="#" onclick="resetFilters()">
+Reset all
+</a>
 
 </div>
 
@@ -204,6 +206,7 @@ oninput="loadFreelancers()"
 type="checkbox"
 id="availableFilter"
 onchange="loadFreelancers()"
+checked
 >
 
 <span class="slider"></span>
@@ -541,6 +544,70 @@ grid.innerHTML += card;
 }
 
 window.onload = loadFreelancers;
+function resetFilters(){
+
+// RESET CATEGORY VARIABLE
+
+selectedCategory = "All";
+
+
+// RESET CATEGORY UI
+
+document
+.querySelectorAll(".filter-group li")
+.forEach(item => {
+
+item.classList.remove("active-filter");
+
+if(item.innerText.trim() === "All"){
+
+item.classList.add("active-filter");
+
+}
+
+});
+
+
+// RESET SEARCH
+
+document.getElementById(
+"freelancerSearch"
+).value = "";
+
+
+// RESET LOCATION
+
+document.getElementById(
+"locationFilter"
+).value = "All";
+
+
+// RESET RANGE
+
+document.getElementById(
+"rateFilter"
+).value = 1000;
+
+
+// RESET TOGGLE
+
+document.getElementById(
+"availableFilter"
+).checked = true;
+
+
+// RESET SORT
+
+document.getElementById(
+"sortFilter"
+).value = "Top Rated";
+
+
+// RELOAD
+
+displayFreelancers();
+
+}
 
 </script>
 <script src="app.js"></script>
