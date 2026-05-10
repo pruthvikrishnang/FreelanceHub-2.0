@@ -112,6 +112,3 @@ node server.js
 # 👨‍💻 Author
 
 Pruthvi Krishna
-
-```
-```
