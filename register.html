@@ -67,7 +67,20 @@ Recruiter
 </div>
 
 <div class="input-group">
-<textarea id="bio" placeholder="Bio"></textarea>
+
+<label for="bio">
+Bio (Max 50 Characters)
+</label>
+
+<textarea
+id="bio"
+placeholder="Enter your bio"
+maxlength="50"
+required
+></textarea>
+
+<small id="bioCount">0/50</small>
+
 </div>
 
 <div class="input-group">

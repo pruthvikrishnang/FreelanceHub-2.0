@@ -2291,3 +2291,19 @@ color:white;
 background:#08153a;
 color:white;
 }
+/* BIO BOX */
+
+#bio{
+height:120px;
+resize:none;
+padding:14px;
+font-size:15px;
+border-radius:14px;
+border:1px solid #ddd;
+}
+
+#bioCount{
+font-size:12px;
+color:#666;
+text-align:right;
+}
