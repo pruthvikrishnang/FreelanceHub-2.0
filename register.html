@@ -69,17 +69,17 @@ Recruiter
 <div class="input-group">
 
 <label for="bio">
-Bio (Max 50 Characters)
+Bio (Max 100 Characters)
 </label>
 
 <textarea
 id="bio"
 placeholder="Enter your bio"
-maxlength="50"
+maxlength="100"
 required
 ></textarea>
 
-<small id="bioCount">0/50</small>
+<small id="bioCount">0/100</small>
 
 </div>
 
@@ -212,7 +212,7 @@ document.getElementById("bioCount");
 bio.addEventListener("input", function(){
 
 bioCount.innerText =
-bio.value.length + "/50";
+bio.value.length + "/100";
 
 });
 </script>
