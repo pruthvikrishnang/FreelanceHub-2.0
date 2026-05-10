@@ -74,38 +74,15 @@ Built using Node.js, Express.js, MySQL, and Vanilla JavaScript, the platform sup
 2. Application request is processed  
 3. Recruiter receives application through email integration  
 
----
 
-# 📦 Setup
-
-## Install Dependencies
-
-```bash
-npm install
-````
-
-## Start Backend Server
-
-```bash
-node server.js
-```
-
-## Database Setup
-
-1. Open MySQL Workbench
-2. Run SQL schema
-3. Start backend server
-
----
 
 # 🚀 Future Improvements
 
-* JWT authentication
 * Freelancer dashboard
 * Payment gateway integration
 * Real-time messaging
 * AI-based recommendations
-* Cloud deployment
+
 
 ---
 
@@ -116,5 +93,5 @@ Pruthvi Krishna
 
 # 🌐 Live Demo 
 
-Website Live Link: 
+Website Live Link : 
 https://pruthvikrishnang.github.io/FreelanceHub-2.0/
