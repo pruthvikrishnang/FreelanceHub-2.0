@@ -1,5 +1,5 @@
 
-# 🚀 FreelanceHub
+# 🚀 FreelanceHub-2.0
 
 A modern full-stack freelancer marketplace platform that connects recruiters with skilled freelancers through a scalable, database-driven workflow.
 
