@@ -95,3 +95,5 @@ Pruthvi Krishna
 
 Website Live Link : 
 https://pruthvikrishnang.github.io/FreelanceHub-2.0/
+
+Note : The link shows freelancers and project details only when the server is running.
