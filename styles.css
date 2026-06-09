@@ -2348,12 +2348,10 @@ text-align:right;
 
 .theme-toggle{
 
-width:48px;
-height:48px;
+width:50px;
+height:50px;
 
 border:none;
-outline:none;
-
 border-radius:50%;
 
 background:white;
@@ -2364,24 +2362,27 @@ display:flex;
 align-items:center;
 justify-content:center;
 
-font-size:18px;
+font-size:20px;
 
-transition:all .35s ease;
+transition:
+transform .4s ease,
+background .4s ease,
+color .4s ease;
 
 }
 
 .theme-toggle:hover{
 
 transform:
-rotate(20deg)
-scale(1.08);
+rotate(180deg)
+scale(1.1);
 
 }
 
 .dark-mode .theme-toggle{
 
 background:#334155;
-color:white;
+color:#ffd43b;
 
 }
 
