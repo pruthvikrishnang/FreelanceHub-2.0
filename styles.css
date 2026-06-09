@@ -1,6 +1,35 @@
 /* ========================= */
 /* FILE NAME : styles.css */
 /* ========================= */
+:root{
+
+--bg:#f4f7f8;
+--card:#ffffff;
+--text:#111827;
+--secondary:#666;
+
+--navbar:#033b43;
+
+--shadow:
+0 10px 30px rgba(0,0,0,0.08);
+
+}
+
+body.dark-mode{
+
+--bg:#0f172a;
+--card:#1e293b;
+--text:#f8fafc;
+--secondary:#cbd5e1;
+
+--navbar:#020617;
+
+--shadow:
+0 10px 30px rgba(0,0,0,0.35);
+
+}
+
+
 html{
 scroll-behavior:smooth;
 }
@@ -16,8 +45,15 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#f4f7f8;
-color:#111827;
+
+background:var(--bg);
+
+color:var(--text);
+
+transition:
+background .4s ease,
+color .4s ease;
+
 }
 
 /* NAVBAR */
@@ -32,7 +68,8 @@ top:0;
 left:0;
 width:100%;
 height:85px;
-background:#033b43;
+background:var(--navbar);
+transition:0.4s ease;
 z-index:1000;
 border-bottom:1px solid rgba(255,255,255,0.06);
 }
@@ -2306,4 +2343,172 @@ border:1px solid #ddd;
 font-size:12px;
 color:#666;
 text-align:right;
+}
+
+
+.theme-toggle{
+
+width:48px;
+height:48px;
+
+border:none;
+outline:none;
+
+border-radius:50%;
+
+background:white;
+
+cursor:pointer;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:18px;
+
+transition:all .35s ease;
+
+}
+
+.theme-toggle:hover{
+
+transform:
+rotate(20deg)
+scale(1.08);
+
+}
+
+.dark-mode .theme-toggle{
+
+background:#334155;
+color:white;
+
+}
+
+
+/* ========================= */
+/* DARK MODE */
+/* ========================= */
+
+.dark-mode{
+
+background:var(--bg);
+color:var(--text);
+
+}
+
+/* MAIN SECTIONS */
+
+.dark-mode .browse-main,
+.dark-mode .projects-main,
+.dark-mode .profile-page,
+.dark-mode .process-main,
+.dark-mode .business-process,
+.dark-mode .login-page,
+.dark-mode .cta-section{
+
+background:var(--bg);
+
+}
+
+/* CARDS */
+
+.dark-mode .stat-box,
+.dark-mode .freelancer-card,
+.dark-mode .feature-box,
+.dark-mode .browse-card,
+.dark-mode .filter-sidebar,
+.dark-mode .project-card,
+.dark-mode .profile-card,
+.dark-mode .process-card,
+.dark-mode .login-container,
+.dark-mode .project-form-box,
+.dark-mode .success-box{
+
+background:var(--card);
+color:var(--text);
+
+box-shadow:
+0 10px 30px rgba(0,0,0,0.25);
+
+}
+
+/* TEXT */
+
+.dark-mode p,
+.dark-mode .desc,
+.dark-mode .location,
+.dark-mode .posted-time,
+.dark-mode .project-bottom,
+.dark-mode .profile-card p,
+.dark-mode .process-card p{
+
+color:var(--secondary);
+
+}
+
+/* INPUTS */
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select{
+
+background:#334155;
+color:white;
+
+border:1px solid #475569;
+
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder{
+
+color:#cbd5e1;
+
+}
+
+/* SKILL TAGS */
+
+.dark-mode .skills span,
+.dark-mode .profile-skills span,
+.dark-mode .project-skills span{
+
+background:#334155;
+color:#e2e8f0;
+
+}
+
+/* FILTERS */
+
+.dark-mode .project-filter-btn{
+
+background:#334155;
+color:white;
+
+}
+
+.dark-mode .active-project-filter{
+
+background:#0b7c88;
+color:white;
+
+}
+
+/* FOOTER */
+
+.dark-mode .footer{
+
+background:#020617;
+
+}
+
+/* HERO AREAS */
+
+.dark-mode .hero,
+.dark-mode .browse-hero,
+.dark-mode .projects-hero,
+.dark-mode .process-hero-page{
+
+filter:brightness(0.9);
+
 }
