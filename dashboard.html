@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard</title>
+
+<link rel="stylesheet"
+href="styles.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<!-- Paste navbar from index.html -->
+
+<div class="nav-container">
+
+<a href="index.html" class="logo">
+<i class="fa-solid fa-briefcase"></i>
+Freelancer - Client <span>Matchmaking</span>
+</a>
+
+<nav class="nav-links">
+
+<a href="index.html" class="active-nav">Home</a>
+
+<a href="browse.html">
+Browse Freelancers
+</a>
+
+<a href="projects.html">
+Projects
+</a>
+
+<a href="how-it-works.html">
+How It Works
+</a>
+
+</nav>
+
+<div class="nav-right">
+
+<button
+id="themeToggle"
+class="theme-toggle"
+>
+<i class="fa-solid fa-moon"></i>
+</button>
+
+<a href="login.html" class="signin-btn">
+Sign In
+</a>
+
+<a href="projects.html#openForm" class="post-btn">
+Post a Project
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+<section class="dashboard-page">
+
+<div class="dashboard-container">
+
+<h1 id="welcomeText">
+Welcome User
+</h1>
+
+<p class="dashboard-subtitle" id="dashboardSubtitle">
+Manage your account and public profile from one place.
+</p>
+
+<div class="dashboard-grid">
+
+<div class="dashboard-card">
+
+<h3>Email</h3>
+
+<p id="userEmail">
+Loading...
+</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<h3>Role</h3>
+
+<p id="userRole">
+Loading...
+</p>
+
+</div>
+
+</div>
+
+<div class="dashboard-card dashboard-wide-card">
+
+<h3>Profile Summary</h3>
+
+<p id="profileSummary">
+Loading your profile details...
+</p>
+
+</div>
+
+<a href="profile-settings.html"
+class="main-btn">
+
+Edit Profile
+
+</a>
+
+</div>
+
+</section>
+
+<script src="app.js"></script>
+<script>
+
+const user =
+JSON.parse(
+localStorage.getItem(
+"currentUser"
+)
+);
+
+if(!user){
+
+window.location.href =
+"login.html";
+
+}
+
+async function loadDashboard(){
+
+const response =
+await fetch(
+window.API_BASE + "/profile/" + user.user_id
+);
+
+const data =
+await response.json();
+
+if(data.success){
+
+localStorage.setItem(
+"currentUser",
+JSON.stringify(data.user)
+);
+
+document.getElementById(
+"welcomeText"
+).innerText =
+"Welcome " +
+data.user.full_name;
+
+document.getElementById(
+"userEmail"
+).innerText =
+data.user.email;
+
+document.getElementById(
+"userRole"
+).innerText =
+data.user.role;
+
+const profile =
+data.profile || {};
+
+document.getElementById(
+"profileSummary"
+).innerText =
+data.user.role === "Recruiter"
+? ((profile.company_name || "Your company") + " - " + (profile.industry || "Industry not set"))
+: ((profile.title || "Title not set") + " - " + (profile.skills || "Skills not set"));
+
+}
+
+}
+
+loadDashboard();
+
+</script>
+
+</body>
+</html>

@@ -44,6 +44,8 @@ class="theme-toggle">
 
 <p>Join FreelanceHub today</p>
 
+<div class="form-message" id="registerMessage"></div>
+
 <div class="input-group">
 <input type="text" id="name" placeholder="Full Name" required>
 </div>
@@ -76,6 +78,8 @@ Recruiter
 
 <!-- FREELANCER FIELDS -->
 
+<div class="role-fields" id="freelancerFields">
+
 <div class="input-group">
 <input type="text" id="title" placeholder="Professional Title">
 </div>
@@ -94,7 +98,6 @@ Bio (Max 100 Characters)
 id="bio"
 placeholder="Enter your bio"
 maxlength="100"
-required
 ></textarea>
 
 <small id="bioCount">0/100</small>
@@ -136,6 +139,20 @@ placeholder="Skills (comma separated)">
 placeholder="Location">
 </div>
 
+</div>
+
+<div class="role-fields hidden" id="recruiterFields">
+
+<div class="input-group">
+<input type="text" id="company_name" placeholder="Company Name">
+</div>
+
+<div class="input-group">
+<input type="text" id="industry" placeholder="Industry">
+</div>
+
+</div>
+
 <button type="submit">
 Register
 </button>
@@ -150,6 +167,11 @@ document.getElementById("registerForm")
 .addEventListener("submit", async function(e){
 
 e.preventDefault();
+
+const message =
+document.getElementById("registerMessage");
+
+message.innerText = "Creating your account...";
 
 const userData = {
 
@@ -187,12 +209,18 @@ skills:
 document.getElementById("skills").value,
 
 location:
-document.getElementById("location").value
+document.getElementById("location").value,
+
+company_name:
+document.getElementById("company_name").value,
+
+industry:
+document.getElementById("industry").value
 
 };
 
 const response = await fetch(
-"http://localhost:5000/register",
+window.API_BASE + "/register",
 {
 method:"POST",
 
@@ -208,14 +236,19 @@ const data = await response.json();
 
 if(data.success){
 
-alert("Registration Successful");
+localStorage.setItem(
+"currentUser",
+JSON.stringify(data.user)
+);
 
-window.location.href = "login.html";
+message.innerText = "Registration successful";
+
+window.location.href = "dashboard.html";
 
 }
 else{
 
-alert(data.message);
+message.innerText = data.message;
 
 }
 
@@ -233,6 +266,52 @@ bioCount.innerText =
 bio.value.length + "/100";
 
 });
+
+const roleSelect =
+document.getElementById("role");
+
+const freelancerFields =
+document.getElementById("freelancerFields");
+
+const recruiterFields =
+document.getElementById("recruiterFields");
+
+roleSelect.addEventListener("change", function(){
+
+updateRoleFields();
+
+});
+
+function updateRoleFields(){
+
+const isRecruiter =
+roleSelect.value === "Recruiter";
+
+freelancerFields.classList.toggle(
+"hidden",
+isRecruiter
+);
+
+recruiterFields.classList.toggle(
+"hidden",
+!isRecruiter
+);
+
+freelancerFields
+.querySelectorAll("input, select, textarea")
+.forEach(field => {
+field.disabled = isRecruiter;
+});
+
+recruiterFields
+.querySelectorAll("input, select, textarea")
+.forEach(field => {
+field.disabled = !isRecruiter;
+});
+
+}
+
+updateRoleFields();
 </script>
 
 <script src="app.js"></script>

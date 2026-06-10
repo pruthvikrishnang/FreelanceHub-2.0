@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile Settings - FreelanceHub</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+
+<body>
+<header class="navbar">
+<div class="nav-container">
+<a href="index.html" class="logo">
+<i class="fa-solid fa-briefcase"></i>
+Freelancer - Client <span>Matchmaking</span>
+</a>
+
+<nav class="nav-links">
+<a href="index.html">Home</a>
+<a href="browse.html">Browse Freelancers</a>
+<a href="projects.html">Projects</a>
+<a href="how-it-works.html">How It Works</a>
+</nav>
+
+<div class="nav-right">
+<button id="themeToggle" class="theme-toggle" type="button">
+<i class="fa-solid fa-moon"></i>
+</button>
+<a href="login.html" class="signin-btn">Sign In</a>
+<a href="projects.html#openForm" class="post-btn">Post a Project</a>
+</div>
+</div>
+</header>
+
+<main class="settings-page">
+<section class="settings-shell">
+<div class="settings-heading">
+<div>
+<p class="eyebrow">Account</p>
+<h1>Profile Settings</h1>
+<p>Keep your public details fresh so the right people can find you.</p>
+</div>
+<a href="dashboard.html" class="secondary-action">
+<i class="fa-solid fa-arrow-left"></i>
+Dashboard
+</a>
+</div>
+
+<form class="settings-form" id="profileForm">
+<div class="settings-section">
+<h2>Basic Details</h2>
+<div class="settings-grid">
+<div class="input-group">
+<label for="full_name">Full Name</label>
+<input type="text" id="full_name" required>
+</div>
+
+<div class="input-group">
+<label for="email">Email</label>
+<input type="email" id="email" required>
+</div>
+
+<div class="input-group">
+<label for="password">New Password</label>
+<input type="password" id="password" placeholder="Leave blank to keep current password">
+</div>
+
+<div class="input-group">
+<label for="role">Role</label>
+<input type="text" id="role" disabled>
+</div>
+</div>
+</div>
+
+<div class="settings-section" id="freelancerSettings">
+<h2>Freelancer Profile</h2>
+<div class="settings-grid">
+<div class="input-group">
+<label for="title">Professional Title</label>
+<input type="text" id="title">
+</div>
+
+<div class="input-group">
+<label for="category">Category</label>
+<select id="category">
+<option value="">Select Category</option>
+<option>Development</option>
+<option>Design</option>
+<option>Writing</option>
+<option>Marketing</option>
+<option>Media</option>
+<option>Data</option>
+</select>
+</div>
+
+<div class="input-group">
+<label for="city">City</label>
+<input type="text" id="city">
+</div>
+
+<div class="input-group">
+<label for="location">Location</label>
+<input type="text" id="location">
+</div>
+
+<div class="input-group">
+<label for="hourly_rate">Hourly Rate</label>
+<input type="number" id="hourly_rate" min="0">
+</div>
+
+<div class="input-group">
+<label for="experience_years">Experience Years</label>
+<input type="number" id="experience_years" min="0">
+</div>
+
+<div class="input-group">
+<label for="availability">Availability</label>
+<select id="availability">
+<option value="yes">Available</option>
+<option value="no">Busy</option>
+</select>
+</div>
+
+<div class="input-group">
+<label for="linkedin_url">LinkedIn URL</label>
+<input type="url" id="linkedin_url">
+</div>
+
+<div class="input-group full-field">
+<label for="skills">Skills</label>
+<input type="text" id="skills" placeholder="React, SQL, Design">
+</div>
+
+<div class="input-group full-field">
+<label for="bio">Bio</label>
+<textarea id="bio" maxlength="100"></textarea>
+<small id="bioCount">0/100</small>
+</div>
+</div>
+</div>
+
+<div class="settings-section hidden" id="recruiterSettings">
+<h2>Recruiter Profile</h2>
+<div class="settings-grid">
+<div class="input-group">
+<label for="company_name">Company Name</label>
+<input type="text" id="company_name">
+</div>
+
+<div class="input-group">
+<label for="industry">Industry</label>
+<input type="text" id="industry">
+</div>
+
+<div class="input-group">
+<label for="recruiter_city">City</label>
+<input type="text" id="recruiter_city">
+</div>
+</div>
+</div>
+
+<div class="settings-actions">
+<p class="form-message" id="settingsMessage"></p>
+<button type="submit">
+<i class="fa-solid fa-floppy-disk"></i>
+Save Changes
+</button>
+</div>
+</form>
+</section>
+</main>
+
+<script src="app.js"></script>
+<script>
+const user = JSON.parse(localStorage.getItem("currentUser"));
+
+if(!user){
+window.location.href = "login.html";
+}
+
+const message = document.getElementById("settingsMessage");
+const bio = document.getElementById("bio");
+const bioCount = document.getElementById("bioCount");
+
+function setValue(id, value){
+document.getElementById(id).value = value || "";
+}
+
+function updateBioCount(){
+bioCount.innerText = bio.value.length + "/100";
+}
+
+async function loadProfile(){
+message.innerText = "Loading profile...";
+
+const response = await fetch(window.API_BASE + "/profile/" + user.user_id);
+const data = await response.json();
+
+if(!data.success){
+message.innerText = data.message || "Could not load profile";
+return;
+}
+
+const profile = data.profile || {};
+localStorage.setItem("currentUser", JSON.stringify(data.user));
+
+setValue("full_name", data.user.full_name);
+setValue("email", data.user.email);
+setValue("role", data.user.role);
+
+const isRecruiter = data.user.role === "Recruiter";
+document.getElementById("freelancerSettings").classList.toggle("hidden", isRecruiter);
+document.getElementById("recruiterSettings").classList.toggle("hidden", !isRecruiter);
+
+if(isRecruiter){
+setValue("company_name", profile.company_name);
+setValue("industry", profile.industry);
+setValue("recruiter_city", profile.city_name);
+}
+else{
+setValue("title", profile.title);
+setValue("category", profile.category);
+setValue("city", profile.city_name);
+setValue("location", profile.location);
+setValue("hourly_rate", profile.hourly_rate);
+setValue("experience_years", profile.experience_years);
+setValue("availability", profile.availability || "yes");
+setValue("linkedin_url", profile.linkedin_url);
+setValue("skills", profile.skills);
+setValue("bio", profile.bio || profile.description);
+updateBioCount();
+}
+
+message.innerText = "";
+}
+
+document.getElementById("profileForm").addEventListener("submit", async function(e){
+e.preventDefault();
+
+const isRecruiter = document.getElementById("role").value === "Recruiter";
+
+const payload = {
+full_name: document.getElementById("full_name").value,
+email: document.getElementById("email").value,
+password: document.getElementById("password").value,
+city: isRecruiter
+? document.getElementById("recruiter_city").value
+: document.getElementById("city").value,
+title: document.getElementById("title").value,
+bio: document.getElementById("bio").value,
+hourly_rate: document.getElementById("hourly_rate").value,
+experience_years: document.getElementById("experience_years").value,
+category: document.getElementById("category").value,
+skills: document.getElementById("skills").value,
+location: document.getElementById("location").value,
+availability: document.getElementById("availability").value,
+linkedin_url: document.getElementById("linkedin_url").value,
+company_name: document.getElementById("company_name").value,
+industry: document.getElementById("industry").value
+};
+
+message.innerText = "Saving changes...";
+
+const response = await fetch(window.API_BASE + "/profile/" + user.user_id, {
+method: "PUT",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify(payload)
+});
+
+const data = await response.json();
+
+if(data.success){
+localStorage.setItem("currentUser", JSON.stringify(data.user));
+message.innerText = "Profile updated successfully";
+document.getElementById("password").value = "";
+}
+else{
+message.innerText = data.message || "Profile update failed";
+}
+});
+
+bio.addEventListener("input", updateBioCount);
+loadProfile();
+</script>
+
+</body>
+</html>

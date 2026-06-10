@@ -73,6 +73,8 @@ Post a Project
 
 <p>Login to continue to FreelanceHub</p>
 
+<div class="form-message" id="loginMessage"></div>
+
 <div class="input-group">
 
 <input
@@ -105,9 +107,9 @@ required
 
 <option value="">Select Role</option>
 
-<option>Student / Freelancer</option>
+<option value="Freelancer">Freelancer</option>
 
-<option>Business / Recruiter</option>
+<option value="Recruiter">Recruiter</option>
 
 </select>
 
@@ -189,7 +191,10 @@ isValid = false;
 
 if(isValid){
 
-fetch("http://localhost:5000/login",{
+document.getElementById("loginMessage").innerText =
+"Checking your account...";
+
+fetch(window.API_BASE + "/login",{
 
 method:"POST",
 
@@ -212,14 +217,23 @@ password:password.value
 
 if(data.success){
 
-alert("Login Successful!");
+localStorage.setItem(
+    "currentUser",
+    JSON.stringify(data.user)
+);
 
-window.location.href = "index.html";
+document.getElementById("loginMessage").innerText =
+"Login successful";
+
+window.location.href =
+"dashboard.html";
 
 }
+
 else{
 
-alert("Invalid Email or Password");
+document.getElementById("loginMessage").innerText =
+data.message || "Invalid Email or Password";
 
 }
 
