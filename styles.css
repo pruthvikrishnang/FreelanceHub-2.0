@@ -2911,3 +2911,349 @@ width:100%;
 justify-content:center;
 }
 }
+
+/* ========================= */
+/* FINAL DARK MODE PALETTE */
+/* ========================= */
+
+body.dark-mode{
+--bg:#10161d;
+--card:#171f28;
+--text:#f4f7f8;
+--secondary:#c2ccd4;
+--navbar:#0b2d34;
+--accent:#72c7bd;
+--accent-strong:#56afa6;
+--accent-ink:#082421;
+--muted-panel:#202a35;
+--border:#34424f;
+--input-bg:#121a22;
+--tag-bg:#1d3a3d;
+--tag-text:#b7eee8;
+--shadow:0 18px 42px rgba(0,0,0,0.32);
+background:var(--bg);
+color:var(--text);
+}
+
+.dark-mode .navbar{
+background:var(--navbar);
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.dark-mode .hero,
+.dark-mode .browse-hero,
+.dark-mode .projects-hero,
+.dark-mode .process-hero-page,
+.dark-mode .cta-box,
+.dark-mode .post-project-box{
+background:linear-gradient(135deg,#0b2d34,#103f48 52%,#182f44);
+filter:none;
+}
+
+.dark-mode .browse-main,
+.dark-mode .projects-main,
+.dark-mode .profile-page,
+.dark-mode .process-main,
+.dark-mode .business-process,
+.dark-mode .login-page,
+.dark-mode .cta-section,
+.dark-mode .dashboard-page,
+.dark-mode .settings-page,
+.dark-mode body{
+background:var(--bg);
+}
+
+.dark-mode .stat-box,
+.dark-mode .freelancer-card,
+.dark-mode .feature-box,
+.dark-mode .browse-card,
+.dark-mode .filter-sidebar,
+.dark-mode .project-card,
+.dark-mode .profile-card,
+.dark-mode .process-card,
+.dark-mode .login-container,
+.dark-mode .project-form-box,
+.dark-mode .success-box,
+.dark-mode .dashboard-card,
+.dark-mode .settings-form,
+.dark-mode .settings-section,
+.dark-mode .browse-status{
+background:var(--card);
+color:var(--text);
+border:1px solid var(--border);
+box-shadow:var(--shadow);
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode .freelancer-card h3,
+.dark-mode .browse-card h2,
+.dark-mode .project-left h2,
+.dark-mode .profile-header h1,
+.dark-mode .settings-heading h1,
+.dark-mode .login-container h1{
+color:var(--text);
+}
+
+.dark-mode h4,
+.dark-mode .freelancer-card h4,
+.dark-mode .browse-card h4,
+.dark-mode .why-section h4,
+.dark-mode .process-section h4,
+.dark-mode .featured-header h4,
+.dark-mode .view-all,
+.dark-mode .learn-link,
+.dark-mode .price,
+.dark-mode .rate,
+.dark-mode .stats-grid h3,
+.dark-mode .eyebrow{
+color:var(--accent) !important;
+}
+
+.dark-mode p,
+.dark-mode li,
+.dark-mode label,
+.dark-mode small,
+.dark-mode .desc,
+.dark-mode .location,
+.dark-mode .posted-time,
+.dark-mode .project-bottom,
+.dark-mode .project-right span,
+.dark-mode .rating span,
+.dark-mode .profile-card p,
+.dark-mode .process-card p,
+.dark-mode .feature-box p,
+.dark-mode .project-left p,
+.dark-mode .project-left h4,
+.dark-mode .jobs,
+.dark-mode .range-values,
+.dark-mode .filter-group h4,
+.dark-mode .dashboard-card p,
+.dark-mode .settings-heading p,
+.dark-mode .login-container p,
+.dark-mode .login-bottom-text,
+.dark-mode .browse-status{
+color:var(--secondary);
+}
+
+.dark-mode .sql-box{
+background:var(--muted-panel);
+border-color:var(--border);
+color:var(--secondary);
+}
+
+.dark-mode .available-badge{
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.12);
+color:var(--text);
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select,
+.dark-mode .sort-box,
+.dark-mode .filter-group select{
+background:var(--input-bg);
+color:var(--text);
+border:1px solid var(--border);
+outline:none;
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder{
+color:#91a0aa;
+}
+
+.dark-mode input:focus,
+.dark-mode textarea:focus,
+.dark-mode select:focus{
+border-color:var(--accent);
+box-shadow:0 0 0 4px rgba(114,199,189,0.16);
+}
+
+.dark-mode .main-btn,
+.dark-mode .apply-btn,
+.dark-mode .success-btn,
+.dark-mode .submit-project-btn,
+.dark-mode .login-container button,
+.dark-mode .settings-actions button,
+.dark-mode .student-btn,
+.dark-mode .business-btn{
+background:var(--accent);
+color:var(--accent-ink) !important;
+border:1px solid transparent;
+}
+
+.dark-mode .main-btn:hover,
+.dark-mode .apply-btn:hover,
+.dark-mode .success-btn:hover,
+.dark-mode .submit-project-btn:hover,
+.dark-mode .login-container button:hover,
+.dark-mode .settings-actions button:hover,
+.dark-mode .student-btn:hover,
+.dark-mode .business-btn:hover{
+background:var(--accent-strong);
+color:var(--accent-ink) !important;
+}
+
+.dark-mode .secondary-btn,
+.dark-mode .signin-btn,
+.dark-mode .post-btn,
+.dark-mode .secondary-action,
+.dark-mode .another-btn,
+.dark-mode .open-project-form-btn{
+background:var(--muted-panel);
+color:var(--text) !important;
+border:1px solid var(--border);
+}
+
+.dark-mode .secondary-btn:hover,
+.dark-mode .signin-btn:hover,
+.dark-mode .post-btn:hover,
+.dark-mode .secondary-action:hover,
+.dark-mode .another-btn:hover,
+.dark-mode .open-project-form-btn:hover{
+background:#263442;
+color:var(--text) !important;
+border-color:var(--accent);
+}
+
+.dark-mode .nav-links a{
+color:#d8e5e7;
+}
+
+.dark-mode .nav-links a:hover,
+.dark-mode .footer-links a:hover,
+.dark-mode .footer ul li a:hover,
+.dark-mode .login-bottom-text a:hover{
+color:var(--accent);
+}
+
+.dark-mode .active-nav{
+background:var(--muted-panel);
+color:var(--text) !important;
+}
+
+.dark-mode .theme-toggle,
+.dark-mode .logout-btn{
+background:var(--muted-panel);
+color:var(--text);
+border:1px solid var(--border);
+}
+
+.dark-mode .theme-toggle:hover,
+.dark-mode .logout-btn:hover{
+background:var(--accent);
+color:var(--accent-ink);
+border-color:var(--accent);
+}
+
+.dark-mode .close-popup{
+color:var(--text);
+}
+
+.dark-mode .close-popup:hover{
+color:var(--accent);
+}
+
+.dark-mode .profile-circle,
+.dark-mode .avatar,
+.dark-mode .profile-avatar,
+.dark-mode .nav-avatar,
+.dark-mode .process-icon{
+background:linear-gradient(135deg,var(--accent),#8fd4cc);
+color:var(--accent-ink);
+}
+
+.dark-mode .available-tag,
+.dark-mode .busy-tag,
+.dark-mode .skills span,
+.dark-mode .profile-skills span,
+.dark-mode .project-skills span,
+.dark-mode .project-category,
+.dark-mode .skill-option span,
+.dark-mode .active-filter{
+background:var(--tag-bg);
+color:var(--tag-text);
+border:1px solid rgba(183,238,232,0.16);
+}
+
+.dark-mode .filter-group li,
+.dark-mode .project-filter,
+.dark-mode .project-filter-btn{
+background:transparent;
+color:var(--secondary);
+border:1px solid transparent;
+}
+
+.dark-mode .filter-group li:hover,
+.dark-mode .project-filter:hover,
+.dark-mode .project-filter-btn:hover,
+.dark-mode .skill-option span:hover{
+background:var(--muted-panel);
+color:var(--text);
+border-color:var(--border);
+}
+
+.dark-mode .active-project-filter,
+.dark-mode .skill-option input:checked + span{
+background:var(--accent);
+color:var(--accent-ink);
+border-color:var(--accent);
+}
+
+.dark-mode .browse-card:hover,
+.dark-mode .freelancer-card:hover,
+.dark-mode .project-card:hover,
+.dark-mode .feature-box:hover,
+.dark-mode .process-card:hover,
+.dark-mode .stat-box:hover{
+background:#1b2530;
+border-color:var(--accent);
+box-shadow:0 22px 48px rgba(0,0,0,0.36);
+}
+
+.dark-mode .search-box,
+.dark-mode .project-search{
+background:rgba(18,26,34,0.82);
+border-color:rgba(114,199,189,0.24);
+}
+
+.dark-mode .search-box:hover,
+.dark-mode .project-search:hover{
+border-color:var(--accent);
+}
+
+.dark-mode .search-box input,
+.dark-mode .project-search input{
+color:var(--text);
+}
+
+.dark-mode .search-box input::placeholder,
+.dark-mode .project-search input::placeholder{
+color:#aebbc4;
+}
+
+.dark-mode .card-bottom,
+.dark-mode .browse-bottom,
+.dark-mode .footer-bottom,
+.dark-mode .footer-grid{
+border-color:rgba(255,255,255,0.08);
+}
+
+.dark-mode .footer{
+background:#0a2026;
+}
+
+.dark-mode .footer p,
+.dark-mode .footer-links a,
+.dark-mode .footer ul li a,
+.dark-mode .footer-bottom p{
+color:var(--secondary);
+}
+
+.dark-mode .footer h3,
+.dark-mode .footer-logo h2{
+color:var(--text);
+}
