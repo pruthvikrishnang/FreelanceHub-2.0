@@ -2867,6 +2867,29 @@ border:1px solid var(--border);
 background:rgba(255,255,255,0.16);
 }
 
+.browse-status{
+grid-column:1 / -1;
+padding:28px;
+border-radius:16px;
+background:var(--card);
+border:1px solid var(--border);
+color:var(--secondary);
+font-weight:700;
+text-align:center;
+}
+
+.browse-status.error{
+color:#b42318;
+background:#fff4f2;
+border-color:#ffd4cc;
+}
+
+.dark-mode .browse-status.error{
+color:#ffb4a8;
+background:#2d1d24;
+border-color:#70404a;
+}
+
 @media(max-width:768px){
 .settings-heading,
 .settings-actions{

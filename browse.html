@@ -332,13 +332,46 @@ displayFreelancers();
 
 async function loadFreelancers(){
 
+const grid =
+document.getElementById("browseGrid");
+
+grid.innerHTML = `
+<div class="browse-status">
+Loading freelancers...
+</div>
+`;
+
+try{
+
 const response =
-await fetch("http://localhost:5000/freelancers");
+await fetch(window.API_BASE + "/freelancers");
+
+if(!response.ok){
+throw new Error("Server error");
+}
 
 allFreelancers =
 await response.json();
 
 displayFreelancers();
+
+}
+catch(error){
+
+allFreelancers = [];
+
+document.querySelector(
+".freelancer-top h3"
+).innerText =
+"Server not connected";
+
+grid.innerHTML = `
+<div class="browse-status error">
+Backend server is not running. Start it with node server/server.js.
+</div>
+`;
+
+}
 
 }
 
