@@ -61,21 +61,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const navRight = document.querySelector(".nav-right");
 
     if (user && signIn) {
-        signIn.href = "dashboard.html";
-        signIn.classList.add("profile-nav-btn");
-        signIn.innerHTML = `
-            <span class="nav-avatar">${getInitials(user.full_name)}</span>
-            <span>${user.full_name}</span>
+        const profileDropdown = document.createElement("div");
+        profileDropdown.className = "profile-dropdown-wrapper";
+        profileDropdown.innerHTML = `
+            <div class="profile-nav-btn">
+                <span class="nav-avatar">${getInitials(user.full_name)}</span>
+                <span>${user.full_name}</span>
+                <i class="fa-solid fa-chevron-down" style="font-size: 12px; margin-left: 4px; opacity: 0.7;"></i>
+            </div>
+            <div class="profile-dropdown">
+                <a href="dashboard.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> My Dashboard</a>
+                <button type="button" class="dropdown-link logout-dropdown-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+            </div>
         `;
-    }
+        signIn.replaceWith(profileDropdown);
 
-    if (user && navRight && !document.querySelector(".logout-btn")) {
-        const logout = document.createElement("button");
-        logout.type = "button";
-        logout.className = "logout-btn";
-        logout.innerHTML = '<i class="fa-solid fa-right-from-bracket"></i>';
-        logout.title = "Logout";
-        logout.addEventListener("click", logoutUser);
-        navRight.appendChild(logout);
+        const logoutBtn = profileDropdown.querySelector('.logout-dropdown-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", logoutUser);
+        }
     }
 });
