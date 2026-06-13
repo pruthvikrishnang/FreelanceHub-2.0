@@ -166,18 +166,24 @@ app.post("/register", async (req, res) => {
 // ================= LOGIN =================
 
 app.post("/login", async (req, res) => {
-    const { email, password } = req.body;
+
+    const { email, password, role } = req.body;
 
     try {
+
         const [result] = await db.execute(
-            "SELECT user_id, full_name, email, role FROM users WHERE email = ? AND password = ?",
-            [email, password]
+            `SELECT user_id, full_name, email, role
+             FROM users
+             WHERE email = ?
+             AND password = ?
+             AND role = ?`,
+            [email, password, role]
         );
 
         if (!result.length) {
             return res.json({
                 success: false,
-                message: "Invalid Email or Password"
+                message: "Invalid Email, Password or Role"
             });
         }
 
@@ -185,14 +191,19 @@ app.post("/login", async (req, res) => {
             success: true,
             user: result[0]
         });
+
     }
     catch (err) {
+
         console.log(err);
+
         return res.json({
             success: false,
             message: "Database error"
         });
+
     }
+
 });
 
 // ================= PROFILE =================
