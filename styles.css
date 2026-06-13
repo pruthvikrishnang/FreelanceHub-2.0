@@ -1213,9 +1213,14 @@ font-size:18px;
 /* ========================= */
 
 .projects-hero{
-padding-top:110px;
-padding-bottom:60px;
-background:#014d56;
+padding-top:95px;
+padding-bottom:45px;
+
+background:linear-gradient(
+135deg,
+#032d33,
+#064e57
+);
 }
 
 .projects-container{
@@ -1237,7 +1242,7 @@ margin-bottom:35px;
 }
 
 .project-search{
-max-width:760px;
+max-width:860px;
 height:58px;
 background:rgba(255,255,255,0.12);
 border:1px solid rgba(255,255,255,0.14);
@@ -1245,6 +1250,16 @@ border-radius:18px;
 display:flex;
 align-items:center;
 padding:0 22px;
+}
+
+.project-search:hover{
+
+border-color:#2ee6c5;
+
+transform:translateY(-2px);
+
+transition:.3s;
+
 }
 
 .project-search i{
