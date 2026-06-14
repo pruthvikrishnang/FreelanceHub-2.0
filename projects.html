@@ -48,8 +48,12 @@ Freelancer - Client <span>Matchmaking</span>
 Sign In
 </a>
 
-<a href="projects.html#openForm" class="post-btn">
-Post a Project
+<a
+href="#"
+class="post-btn"
+onclick="openProjectPopupFromAnywhere(); return false;"
+>
+    Post a Project
 </a>
 
 <button
@@ -155,7 +159,7 @@ Post a Project
 
 <!-- POPUP -->
 
-<div class="project-popup" id="projectPopup">
+<div class="project-popup" id="openForm">
 
 <div class="project-form-box">
 
@@ -261,15 +265,24 @@ Post Another
 
 function openProjectForm(){
 
-document.getElementById("projectPopup")
-.classList.add("show-popup");
+    document
+    .getElementById("openForm")
+    .classList.add("show-popup");
+
+    document.body.style.overflow = "hidden";
 
 }
 
+
+
+
 function closeProjectForm(){
 
-document.getElementById("projectPopup")
-.classList.remove("show-popup");
+    document
+    .getElementById("openForm")
+    .classList.remove("show-popup");
+
+    document.body.style.overflow = "auto";
 
 }
 
@@ -278,7 +291,7 @@ function postAnother(){
 document.getElementById("successPopup")
 .classList.remove("show-success");
 
-document.getElementById("projectPopup")
+document.getElementById("openForm")
 .classList.add("show-popup");
 
 }
@@ -492,7 +505,7 @@ if(data.success){
 
 loadProjects();
 
-document.getElementById("projectPopup")
+document.getElementById("openForm")
 .classList.remove("show-popup");
 
 document.getElementById("successPopup")
@@ -547,6 +560,29 @@ button.classList.add(
 loadProjects();
 
 }
+
+
+
+window.addEventListener("load", () => {
+
+    loadProjects();
+
+    const shouldOpen =
+    sessionStorage.getItem(
+        "openProjectPopup"
+    );
+
+    if(shouldOpen === "true"){
+
+        sessionStorage.removeItem(
+            "openProjectPopup"
+        );
+
+        openProjectForm();
+
+    }
+
+});
 
 
 // ADD THIS WHOLE FUNCTION HERE
@@ -624,17 +660,26 @@ alert("Failed To Send");
 
 }
 
-window.onload = function(){
+window.addEventListener("load", () => {
 
-loadProjects();
+    loadProjects();
 
-if(window.location.hash === "#openForm"){
+    const shouldOpen =
+    sessionStorage.getItem(
+        "openProjectPopup"
+    );
 
-openProjectForm();
+    if(shouldOpen === "true"){
 
-}
+        sessionStorage.removeItem(
+            "openProjectPopup"
+        );
 
-};
+        openProjectForm();
+
+    }
+
+});
 
 </script>
 

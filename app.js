@@ -82,3 +82,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+function openProjectPopupFromAnywhere(){
+
+    sessionStorage.setItem(
+        "openProjectPopup",
+        "true"
+    );
+
+    window.location.href =
+    "projects.html";
+
+}
