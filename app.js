@@ -11,7 +11,6 @@ function getCurrentUser() {
     }
 }
 
-
 function getInitials(name = "User") {
     return name
         .split(" ")
