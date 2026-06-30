@@ -7,510 +7,480 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Browse Freelancers</title>
+    <title>Browse Freelancers</title>
 
-<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+    <!-- NAVBAR -->
 
-<header class="navbar">
+    <header class="navbar">
 
-<div class="nav-container">
+        <div class="nav-container">
 
-<a href="index.html" class="logo">
-<i class="fa-solid fa-briefcase"></i>
-Freelancer - Client <span>Matchmaking</span>
-</a>
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-briefcase"></i>
+                Freelancer - Client <span>Matchmaking</span>
+            </a>
 
-<nav class="nav-links">
+            <nav class="nav-links">
 
-<a href="index.html">Home</a>
+                <a href="index.html">Home</a>
 
-<a href="browse.html" class="active-nav">
-Browse Freelancers
-</a>
+                <a href="browse.html" class="active-nav">
+                    Browse Freelancers
+                </a>
 
-<a href="projects.html">
-Projects
-</a>
+                <a href="projects.html">
+                    Projects
+                </a>
 
-<a href="how-it-works.html">
-How It Works
-</a>
-</nav>
+                <a href="how-it-works.html">
+                    How It Works
+                </a>
+            </nav>
 
-<div class="nav-right">
+            <div class="nav-right">
 
-<a href="login.html" class="signin-btn">
-Sign In
-</a>
+                <a href="login.html" class="signin-btn">
+                    Sign In
+                </a>
 
-<a
-href="#"
-class="post-btn"
-onclick="openProjectPopupFromAnywhere(); return false;"
->
-    Post a Project
-</a>
+                <a href="#" class="post-btn" onclick="openProjectPopupFromAnywhere(); return false;">
+                    Post a Project
+                </a>
 
-<button
-id="themeToggle"
-class="theme-toggle"
->
-<i class="fa-solid fa-moon"></i>
-</button>
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-</header>
+    </header>
 
-<!-- HERO -->
+    <!-- HERO -->
 
-<section class="browse-hero">
+    <section class="browse-hero">
 
-<div class="browse-container">
+        <div class="browse-container">
 
-<h1>Browse Freelancers</h1>
+            <h1>Browse Freelancers</h1>
 
-<p>Discover skilled students and professionals</p>
+            <p>Discover skilled students and professionals</p>
 
-<div class="search-box">
+            <div class="search-box">
 
-<i class="fa-solid fa-magnifying-glass"></i>
-<input
-type="text"
-id="freelancerSearch"
-placeholder="Search by name, skill, or technology..."
-onkeyup="loadFreelancers()"
->
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="freelancerSearch" placeholder="Search by name, skill, or technology..."
+                    onkeyup="loadFreelancers()">
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-</section>
+    </section>
 
-<!-- MAIN CONTENT -->
+    <!-- MAIN CONTENT -->
 
-<section class="browse-main">
+    <section class="browse-main">
 
-<div class="browse-layout">
+        <div class="browse-layout">
 
-<!-- FILTER SIDEBAR -->
+            <!-- FILTER SIDEBAR -->
 
-<div class="filter-sidebar">
+            <div class="filter-sidebar">
 
-<div class="filter-top">
+                <div class="filter-top">
 
-<h2>Filters</h2>
+                    <h2>Filters</h2>
 
-<a href="#" onclick="resetFilters()">
-Reset all
-</a>
+                    <a href="#" onclick="resetFilters()">
+                        Reset all
+                    </a>
 
-</div>
+                </div>
 
-<div class="filter-group">
+                <div class="filter-group">
 
-<h4>CATEGORY</h4>
+                    <h4>CATEGORY</h4>
 
-<ul>
+                    <ul>
 
-<li class="active-filter"
-onclick="setCategory('All',this)">
-All
-</li>
+                        <li class="active-filter" onclick="setCategory('All',this)">
+                            All
+                        </li>
 
-<li onclick="setCategory('Development',this)">
-Development
-</li>
+                        <li onclick="setCategory('Development',this)">
+                            Development
+                        </li>
 
-<li onclick="setCategory('Design',this)">
-Design
-</li>
+                        <li onclick="setCategory('Design',this)">
+                            Design
+                        </li>
 
-<li onclick="setCategory('Writing',this)">
-Writing
-</li>
+                        <li onclick="setCategory('Writing',this)">
+                            Writing
+                        </li>
 
-<li onclick="setCategory('Marketing',this)">
-Marketing
-</li>
+                        <li onclick="setCategory('Marketing',this)">
+                            Marketing
+                        </li>
 
-<li onclick="setCategory('Media',this)">
-Media
-</li>
+                        <li onclick="setCategory('Media',this)">
+                            Media
+                        </li>
 
-<li onclick="setCategory('Data',this)">
-Data
-</li>
+                        <li onclick="setCategory('Data',this)">
+                            Data
+                        </li>
 
-</ul>
+                    </ul>
 
-</div>
+                </div>
 
-<div class="filter-group">
+                <div class="filter-group">
 
-<h4>LOCATION</h4>
+                    <h4>LOCATION</h4>
 
-<select
-id="locationFilter"
-onchange="loadFreelancers()"
->
+                    <select id="locationFilter" onchange="loadFreelancers()">
 
-<option>All</option>
-<option>Bengaluru</option>
-<option>Mangalore</option>
-<option>Hubli</option>
-<option>Hyderabad</option>
+                        <option>All</option>
+                        <option>Bengaluru</option>
+                        <option>Mangalore</option>
+                        <option>Hubli</option>
+                        <option>Hyderabad</option>
 
-</select>
+                    </select>
 
-</div>
+                </div>
 
-<div class="filter-group">
+                <div class="filter-group">
 
-<h4>MAX RATE: ₹1000/HR</h4>
+                    <h4>MAX RATE: ₹1000/HR</h4>
 
-<input
-type="range"
-min="400"
-max="1000"
-value="1000"
-id="rateFilter"
-oninput="loadFreelancers()"
->
+                    <input type="range" min="400" max="1000" value="1000" id="rateFilter" oninput="loadFreelancers()">
 
-<div class="range-values">
+                    <div class="range-values">
 
-<span>₹400</span>
-<span>₹1000</span>
+                        <span>₹400</span>
+                        <span>₹1000</span>
 
-</div>
+                    </div>
 
-</div>
+                </div>
 
-<div class="toggle-box">
+                <div class="toggle-box">
 
-<span>Available now</span>
+                    <span>Available now</span>
 
-<label class="switch">
+                    <label class="switch">
 
-<input
-type="checkbox"
-id="availableFilter"
-onchange="loadFreelancers()"
->
+                        <input type="checkbox" id="availableFilter" onchange="loadFreelancers()">
 
-<span class="slider"></span>
+                        <span class="slider"></span>
 
-</label>
+                    </label>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-<!-- FREELANCERS -->
+            <!-- FREELANCERS -->
 
-<div class="freelancer-content">
+            <div class="freelancer-content">
 
-<div class="freelancer-top">
+                <div class="freelancer-top">
 
-<h3>8 freelancers found</h3>
+                    <h3>8 freelancers found</h3>
 
-<select
-class="sort-box"
-id="sortFilter"
-onchange="loadFreelancers()"
->
+                    <select class="sort-box" id="sortFilter" onchange="loadFreelancers()">
 
-<option>Top Rated</option>
-<option>Lowest Price</option>
-<option>Highest Price</option>
+                        <option>Top Rated</option>
+                        <option>Lowest Price</option>
+                        <option>Highest Price</option>
 
-</select>
+                    </select>
 
-</div>
+                </div>
 
-<div class="browse-grid" id="browseGrid">
-</div>
-</section>
+                <div class="browse-grid" id="browseGrid">
+                </div>
+    </section>
 
 
-<footer class="footer">
+    <footer class="footer">
 
-<div class="footer-container">
+        <div class="footer-container">
 
-<div class="footer-grid">
+            <div class="footer-grid">
 
-<div class="footer-brand">
+                <div class="footer-brand">
 
-<div class="footer-logo">
-<i class="fa-solid fa-briefcase"></i>
-<h2>Freelancer - Client <span>Matchmaking</span></h2>
-</div>
+                    <div class="footer-logo">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <h2>Freelancer - Client <span>Matchmaking</span></h2>
+                    </div>
 
-<p>
-Connecting talented students and professionals with local businesses
-for impactful freelance work.
-</p>
+                    <p>
+                        Connecting talented students and professionals with local businesses
+                        for impactful freelance work.
+                    </p>
 
 
-</div>
+                </div>
 
-<div class="footer-links">
-<h3>PLATFORM</h3>
+                <div class="footer-links">
+                    <h3>PLATFORM</h3>
 
-<a href="browse.html">Browse Freelancers</a>
-<a href="projects.html">Browse Projects</a>
-<a href="#"
-onclick="openProjectPopupFromAnywhere(); return false;">
-Post a Project
-</a>
-<a href="how-it-works.html">How It Works</a>
+                    <a href="browse.html">Browse Freelancers</a>
+                    <a href="projects.html">Browse Projects</a>
+                    <a href="#" onclick="openProjectPopupFromAnywhere(); return false;">
+                        Post a Project
+                    </a>
+                    <a href="how-it-works.html">How It Works</a>
 
-</div>
+                </div>
 
-<div class="footer-links">
+                <div class="footer-links">
 
-<h3>ACCOUNT</h3>
+                    <h3>ACCOUNT</h3>
 
-<a href="login.html">Student Sign In</a>
-<a href="login.html">Recruiter Sign In</a>
-<a href="login.html">Join as Student</a>
-<a href="login.html">Join as Business</a>
+                    <a href="login.html">Student Sign In</a>
+                    <a href="login.html">Recruiter Sign In</a>
+                    <a href="login.html">Join as Student</a>
+                    <a href="login.html">Join as Business</a>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-<div class="footer-bottom">
+            <div class="footer-bottom">
 
-<p>
-© 2026 FreelanceHub — Student & Professional Matchmaking Platform
-</p>
+                <p>
+                    © 2026 FreelanceHub — Student & Professional Matchmaking Platform
+                </p>
 
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-</footer>
-<script>
+    </footer>
+    <script>
 
-let allFreelancers = [];
+        let allFreelancers = [];
 
-let selectedCategory = "All";
+        let selectedCategory = "All";
 
-function setCategory(category,element){
+        function setCategory(category, element) {
 
-selectedCategory = category;
+            selectedCategory = category;
 
-document
-.querySelectorAll(".filter-group ul li")
-.forEach(item => {
+            document
+                .querySelectorAll(".filter-group ul li")
+                .forEach(item => {
 
-item.classList.remove("active-filter");
+                    item.classList.remove("active-filter");
 
-});
+                });
 
-element.classList.add("active-filter");
+            element.classList.add("active-filter");
 
-displayFreelancers();
+            displayFreelancers();
 
-}
+        }
 
-async function loadFreelancers(){
+        async function loadFreelancers() {
 
-const grid =
-document.getElementById("browseGrid");
+            const grid =
+                document.getElementById("browseGrid");
 
-grid.innerHTML = `
+            grid.innerHTML = `
 <div class="browse-status">
 Loading freelancers...
 </div>
 `;
 
-try{
+            try {
 
-const response =
-await fetch(window.API_BASE + "/freelancers");
+                const response =
+                    await fetch(window.API_BASE + "/freelancers");
 
-if(!response.ok){
-throw new Error("Server error");
-}
+                if (!response.ok) {
+                    throw new Error("Server error");
+                }
 
-allFreelancers =
-await response.json();
+                allFreelancers =
+                    await response.json();
 
-displayFreelancers();
+                displayFreelancers();
 
-}
-catch(error){
+            }
+            catch (error) {
 
-allFreelancers = [];
+                allFreelancers = [];
 
-document.querySelector(
-".freelancer-top h3"
-).innerText =
-"Server not connected";
+                document.querySelector(
+                    ".freelancer-top h3"
+                ).innerText =
+                    "Server not connected";
 
-grid.innerHTML = `
+                grid.innerHTML = `
 <div class="browse-status error">
 Backend server is not running. Start it with node server/server.js.
 </div>
 `;
 
-}
+            }
 
-}
+        }
 
-function displayFreelancers(){
+        function displayFreelancers() {
 
-const search =
-document
-.getElementById("freelancerSearch")
-.value.toLowerCase();
+            const search =
+                document
+                    .getElementById("freelancerSearch")
+                    .value.toLowerCase();
 
-const location =
-document
-.getElementById("locationFilter")
-.value;
+            const location =
+                document
+                    .getElementById("locationFilter")
+                    .value;
 
-const maxRate =
-parseInt(
-document
-.getElementById("rateFilter")
-.value
-);
+            const maxRate =
+                parseInt(
+                    document
+                        .getElementById("rateFilter")
+                        .value
+                );
 
-const available =
-document
-.getElementById("availableFilter")
-.checked;
+            const available =
+                document
+                    .getElementById("availableFilter")
+                    .checked;
 
-const sort =
-document
-.getElementById("sortFilter")
-.value;
+            const sort =
+                document
+                    .getElementById("sortFilter")
+                    .value;
 
-let filtered =
-allFreelancers.filter(f => {
+            let filtered =
+                allFreelancers.filter(f => {
 
-const matchesSearch =
+                    const matchesSearch =
 
-f.full_name.toLowerCase().includes(search)
+                        f.full_name.toLowerCase().includes(search)
 
-||
+                        ||
 
-f.skills.toLowerCase().includes(search);
+                        f.skills.toLowerCase().includes(search);
 
-const matchesCategory =
+                    const matchesCategory =
 
-selectedCategory === "All"
+                        selectedCategory === "All"
 
-||
+                        ||
 
-f.category === selectedCategory;
+                        f.category === selectedCategory;
 
-const matchesLocation =
+                    const matchesLocation =
 
-location === "All"
+                        location === "All"
 
-||
+                        ||
 
-f.location === location;
+                        f.location === location;
 
-const matchesRate =
+                    const matchesRate =
 
-f.hourly_rate <= maxRate;
+                        f.hourly_rate <= maxRate;
 
-const matchesAvailability =
+                    const matchesAvailability =
 
-!available
+                        !available
 
-||
+                        ||
 
-f.availability === "yes";
+                        f.availability === "yes";
 
-return (
-matchesSearch &&
-matchesCategory &&
-matchesLocation &&
-matchesRate &&
-matchesAvailability
-);
+                    return (
+                        matchesSearch &&
+                        matchesCategory &&
+                        matchesLocation &&
+                        matchesRate &&
+                        matchesAvailability
+                    );
 
-});
-
-
-// SORTING
-
-if(sort === "Top Rated"){
-
-filtered.sort((a,b)=>
-b.rating - a.rating
-);
-
-}
-
-if(sort === "Lowest Price"){
-
-filtered.sort((a,b)=>
-a.hourly_rate - b.hourly_rate
-);
-
-}
-
-if(sort === "Highest Price"){
-
-filtered.sort((a,b)=>
-b.hourly_rate - a.hourly_rate
-);
-
-}
+                });
 
 
-// UPDATE COUNT
+            // SORTING
 
-document.querySelector(
-".freelancer-top h3"
-).innerText =
-filtered.length + " freelancers found";
+            if (sort === "Top Rated") {
+
+                filtered.sort((a, b) =>
+                    b.rating - a.rating
+                );
+
+            }
+
+            if (sort === "Lowest Price") {
+
+                filtered.sort((a, b) =>
+                    a.hourly_rate - b.hourly_rate
+                );
+
+            }
+
+            if (sort === "Highest Price") {
+
+                filtered.sort((a, b) =>
+                    b.hourly_rate - a.hourly_rate
+                );
+
+            }
 
 
-// DISPLAY
+            // UPDATE COUNT
 
-const grid =
-document.getElementById("browseGrid");
+            document.querySelector(
+                ".freelancer-top h3"
+            ).innerText =
+                filtered.length + " freelancers found";
 
-grid.innerHTML = "";
 
-filtered.forEach(f => {
+            // DISPLAY
 
-const initials =
-f.full_name
-.split(" ")
-.map(word => word[0])
-.join("");
+            const grid =
+                document.getElementById("browseGrid");
 
-const card = `
+            grid.innerHTML = "";
+
+            filtered.forEach(f => {
+
+                const initials =
+                    f.full_name
+                        .split(" ")
+                        .map(word => word[0])
+                        .join("");
+
+                const card = `
 
 <div class="browse-card">
 
@@ -520,16 +490,14 @@ const card = `
 ${initials}
 </div>
 
-<div class="${
-f.availability === "yes"
-? "available-tag"
-: "busy-tag"
-}">
-● ${
-f.availability === "yes"
-? "Available"
-: "Busy"
-}
+<div class="${f.availability === "yes"
+                        ? "available-tag"
+                        : "busy-tag"
+                    }">
+● ${f.availability === "yes"
+                        ? "Available"
+                        : "Busy"
+                    }
 </div>
 
 </div>
@@ -555,11 +523,11 @@ ${f.description}
 <div class="skills">
 
 ${f.skills
-.split(",")
-.map(skill =>
-`<span>${skill}</span>`
-)
-.join("")}
+                        .split(",")
+                        .map(skill =>
+                            `<span>${skill}</span>`
+                        )
+                        .join("")}
 
 </div>
 
@@ -582,81 +550,81 @@ ${f.skills
 </div>
 `;
 
-grid.innerHTML += card;
+                grid.innerHTML += card;
 
-});
+            });
 
-}
+        }
 
-window.onload = loadFreelancers;
-function resetFilters(){
+        window.onload = loadFreelancers;
+        function resetFilters() {
 
-// RESET CATEGORY VARIABLE
+            // RESET CATEGORY VARIABLE
 
-selectedCategory = "All";
-
-
-// RESET CATEGORY UI
-
-document
-.querySelectorAll(".filter-group li")
-.forEach(item => {
-
-item.classList.remove("active-filter");
-
-if(item.innerText.trim() === "All"){
-
-item.classList.add("active-filter");
-
-}
-
-});
+            selectedCategory = "All";
 
 
-// RESET SEARCH
+            // RESET CATEGORY UI
 
-document.getElementById(
-"freelancerSearch"
-).value = "";
+            document
+                .querySelectorAll(".filter-group li")
+                .forEach(item => {
 
+                    item.classList.remove("active-filter");
 
-// RESET LOCATION
+                    if (item.innerText.trim() === "All") {
 
-document.getElementById(
-"locationFilter"
-).value = "All";
+                        item.classList.add("active-filter");
 
+                    }
 
-// RESET RANGE
-
-document.getElementById(
-"rateFilter"
-).value = 1000;
+                });
 
 
-// RESET TOGGLE
+            // RESET SEARCH
 
-document.getElementById(
-"availableFilter"
-).checked = false;
-
-
-// RESET SORT
-
-document.getElementById(
-"sortFilter"
-).value = "Top Rated";
+            document.getElementById(
+                "freelancerSearch"
+            ).value = "";
 
 
-// RELOAD
+            // RESET LOCATION
 
-displayFreelancers();
+            document.getElementById(
+                "locationFilter"
+            ).value = "All";
 
-}
 
-</script>
-<script src="app.js"></script>
+            // RESET RANGE
+
+            document.getElementById(
+                "rateFilter"
+            ).value = 1000;
+
+
+            // RESET TOGGLE
+
+            document.getElementById(
+                "availableFilter"
+            ).checked = false;
+
+
+            // RESET SORT
+
+            document.getElementById(
+                "sortFilter"
+            ).value = "Top Rated";
+
+
+            // RELOAD
+
+            displayFreelancers();
+
+        }
+
+    </script>
+    <script src="app.js"></script>
 
 </body>
-</html>
 
+</html>
